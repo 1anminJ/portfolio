@@ -8,7 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
     
     <style>
-        /* --- Plum Purple Design System --- */
         :root {
             --plum: #7c3aed;
             --plum-light: #a78bfa;
@@ -39,7 +38,6 @@
         }
         a { text-decoration: none; color: inherit; transition: all 0.2s ease; }
         ul { list-style: none; }
-
         .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
         section { padding: 100px 0; }
 
@@ -120,7 +118,7 @@
         }
         .hero-btn-ghost:hover { border-color: var(--plum-light); color: var(--plum); background: var(--plum-subtle); }
 
-        /* --- Section Title --- */
+        /* --- Section Header --- */
         .section-header { text-align: center; margin-bottom: 64px; }
         .section-label {
             display: inline-block; font-size: 0.8rem; font-weight: 700; 
@@ -149,6 +147,63 @@
             padding: 4px 12px; border-radius: var(--radius-full);
             font-size: 0.8rem; font-weight: 500; color: var(--text-secondary);
             background: var(--bg-alt); border: 1px solid var(--border-light);
+        }
+
+        /* --- Awards Section --- */
+        .awards-section { background: var(--bg); }
+        .awards-timeline { max-width: 800px; margin: 0 auto; position: relative; }
+        .awards-timeline::before {
+            content: ''; position: absolute; left: 20px; top: 0; bottom: 0;
+            width: 2px; background: linear-gradient(to bottom, var(--plum-light), var(--plum), var(--plum-light));
+            border-radius: 2px;
+        }
+        .award-item {
+            position: relative; padding-left: 56px; margin-bottom: 32px;
+        }
+        .award-item:last-child { margin-bottom: 0; }
+        .award-dot {
+            position: absolute; left: 12px; top: 6px;
+            width: 18px; height: 18px; border-radius: 50%;
+            background: var(--bg); border: 3px solid var(--plum);
+            z-index: 1;
+        }
+        .award-item.major .award-dot {
+            background: var(--plum);
+            box-shadow: 0 0 0 4px rgba(124,58,237,0.15);
+        }
+        .award-year {
+            font-size: 0.78rem; font-weight: 700; color: var(--plum);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px;
+        }
+        .award-card {
+            background: var(--bg); padding: 20px 24px; border-radius: var(--radius);
+            border: 1px solid var(--border-light); transition: all 0.25s;
+        }
+        .award-card:hover { border-color: var(--plum-light); box-shadow: var(--shadow-glow); }
+        .award-item.major .award-card {
+            background: var(--plum-subtle); border-color: rgba(124,58,237,0.15);
+        }
+        .award-title {
+            font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 4px;
+            display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+        }
+        .award-title .trophy { font-size: 1.1rem; }
+        .award-org {
+            font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 6px;
+        }
+        .award-project {
+            display: inline-block; padding: 3px 10px; border-radius: var(--radius-full);
+            font-size: 0.75rem; font-weight: 600; background: var(--bg-alt);
+            color: var(--text-secondary); border: 1px solid var(--border-light);
+        }
+        .award-item.major .award-project {
+            background: rgba(124,58,237,0.08); color: var(--plum); border-color: rgba(124,58,237,0.15);
+        }
+        .patent-badge {
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 3px 10px; border-radius: var(--radius-full);
+            font-size: 0.75rem; font-weight: 600;
+            background: #ecfdf5; color: #059669; border: 1px solid #a7f3d0;
         }
 
         /* --- Projects --- */
@@ -182,6 +237,7 @@
         .badge-personal { background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; }
         .badge-wip { background: #fef3c7; color: #b45309; border: 1px solid #fde68a; }
         .badge-solo { background: linear-gradient(135deg, var(--plum), var(--plum-light)); color: #fff; }
+        .badge-patent { background: #ecfdf5; color: #059669; border: 1px solid #a7f3d0; }
 
         .project-desc {
             font-size: 1.05rem; color: var(--text-secondary); line-height: 1.75;
@@ -215,16 +271,18 @@
         }
         .feature-block li strong { color: var(--text); font-weight: 600; }
 
-        /* --- Award Banner --- */
-        .award-banner {
+        /* --- Award Banners in project --- */
+        .award-banner-mini {
             background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
-            border: 1px solid #fde68a; border-radius: var(--radius);
-            padding: 20px 28px; margin-bottom: 28px;
-            display: flex; align-items: center; gap: 16px;
+            border: 1px solid #fde68a; border-radius: var(--radius-sm);
+            padding: 14px 20px; margin-bottom: 12px;
+            display: flex; align-items: center; gap: 12px;
+            font-size: 0.88rem;
         }
-        .award-banner .icon { font-size: 2rem; }
-        .award-banner h4 { font-size: 0.95rem; color: #92400e; font-weight: 700; }
-        .award-banner p { font-size: 0.85rem; color: #a16207; margin-top: 2px; }
+        .award-banner-mini .icon { font-size: 1.3rem; flex-shrink: 0; }
+        .award-banner-mini .info { flex: 1; }
+        .award-banner-mini .title { font-weight: 700; color: #92400e; }
+        .award-banner-mini .date { font-size: 0.78rem; color: #a16207; }
 
         /* --- Pipeline --- */
         .pipeline-box {
@@ -307,11 +365,14 @@
             .project-links { flex-direction: column; }
             .btn { justify-content: center; }
             .stats-row { grid-template-columns: 1fr; }
-            .award-banner { flex-direction: column; text-align: center; }
+            .award-banner-mini { flex-direction: column; text-align: center; gap: 6px; }
             .pipeline-flow { flex-direction: column; align-items: stretch; }
             .pipeline-arrow { transform: rotate(90deg); text-align: center; }
             .nav-menu { gap: 4px; }
             .nav-link { padding: 6px 12px; font-size: 0.82rem; }
+            .awards-timeline::before { left: 16px; }
+            .award-item { padding-left: 48px; }
+            .award-dot { left: 8px; }
         }
         @media (min-width: 769px) and (max-width: 1024px) {
             .skills-grid { grid-template-columns: repeat(2, 1fr); }
@@ -326,6 +387,7 @@
             <div class="nav-menu">
                 <a href="#home" class="nav-link">Home</a>
                 <a href="#skills" class="nav-link">Skills</a>
+                <a href="#awards" class="nav-link">Awards</a>
                 <a href="#projects" class="nav-link">Projects</a>
             </div>
         </div>
@@ -431,6 +493,89 @@
         </div>
     </section>
 
+    <!-- ==================== AWARDS ==================== -->
+    <section id="awards" class="awards-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Awards & Patents</div>
+                <h2 class="section-title">수상 및 특허</h2>
+            </div>
+            <div class="awards-timeline">
+
+                <!-- 2025.12.12 최우수상 -->
+                <div class="award-item major">
+                    <div class="award-dot"></div>
+                    <div class="award-year">2025.12.12</div>
+                    <div class="award-card">
+                        <div class="award-title">
+                            <span class="trophy">🏆</span>
+                            최우수상 (대학총장상)
+                        </div>
+                        <div class="award-org">컴퓨터소프트웨어공학과 2025 스마트 SW 개발 경진대회</div>
+                        <span class="award-project">🔍 Zivorp (Debug Visual)</span>
+                    </div>
+                </div>
+
+                <!-- 2025.12.12 장려상 -->
+                <div class="award-item">
+                    <div class="award-dot"></div>
+                    <div class="award-year">2025.12.12</div>
+                    <div class="award-card">
+                        <div class="award-title">
+                            <span class="trophy">🥉</span>
+                            장려상
+                        </div>
+                        <div class="award-org">2025 주문식 교육 생성형AI활용개발실무 경진대회</div>
+                        <span class="award-project">🎙️ Action Log</span>
+                    </div>
+                </div>
+
+                <!-- 2025.12 특허 -->
+                <div class="award-item">
+                    <div class="award-dot"></div>
+                    <div class="award-year">2025</div>
+                    <div class="award-card">
+                        <div class="award-title">
+                            <span class="trophy">📄</span>
+                            특허 출원
+                        </div>
+                        <div class="award-org">Action Log — AI 기반 자동 요약 및 Action Item 추출 서비스</div>
+                        <span class="patent-badge"><i class="fas fa-file-contract"></i> Patent Filed</span>
+                    </div>
+                </div>
+
+                <!-- 2025.11.21 ABEEK상 -->
+                <div class="award-item major">
+                    <div class="award-dot"></div>
+                    <div class="award-year">2025.11.21</div>
+                    <div class="award-card">
+                        <div class="award-title">
+                            <span class="trophy">🏆</span>
+                            한국공학교육인증원(ABEEK)상 (한국공학교육인증원장상)
+                        </div>
+                        <div class="award-org">2025 DigiTech 캡스톤디자인 경진대회</div>
+                        <span class="award-project">🔍 Zivorp (Debug Visual)</span>
+                    </div>
+                </div>
+
+                <!-- 2024.11.14 대상 -->
+                <div class="award-item major">
+                    <div class="award-dot"></div>
+                    <div class="award-year">2024.11.14</div>
+                    <div class="award-card">
+                        <div class="award-title">
+                            <span class="trophy">🏆</span>
+                            대상 (대학총장상)
+                        </div>
+                        <div class="award-org">교내 EXPO 졸업작품전시회</div>
+                        <span class="award-project">🖐 Leaf Tale</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <!-- ==================== PROJECTS ==================== -->
     <section id="projects">
         <div class="container">
@@ -445,13 +590,28 @@
                     <div>
                         <div class="project-name">🔍 Zivorp (Debug Visual)</div>
                         <div class="project-info">
-                            <p class="project-period">2025.03 — 진행중 · 팀 프로젝트 (5인)</p>
+                            <p class="project-period">2025.03 — 2025.12 · 팀 프로젝트 (5인)</p>
                             <p class="project-role">Backend 단독 개발 · AWS 배포 · CI/CD 자동화</p>
                         </div>
                     </div>
                     <div class="badge-group">
+                        <span class="badge badge-award">🏆 최우수상 × 2</span>
                         <span class="badge badge-solo">Solo Backend</span>
-                        <span class="badge badge-team">Team</span>
+                    </div>
+                </div>
+
+                <div class="award-banner-mini">
+                    <div class="icon">🏆</div>
+                    <div class="info">
+                        <div class="title">스마트 SW 개발 경진대회 — 최우수상 (대학총장상)</div>
+                        <div class="date">2025.12.12</div>
+                    </div>
+                </div>
+                <div class="award-banner-mini">
+                    <div class="icon">🏆</div>
+                    <div class="info">
+                        <div class="title">DigiTech 캡스톤디자인 경진대회 — ABEEK상 (한국공학교육인증원장상)</div>
+                        <div class="date">2025.11.21</div>
                     </div>
                 </div>
 
@@ -527,11 +687,30 @@
                     <div>
                         <div class="project-name">🎙️ Action Log</div>
                         <div class="project-info">
-                            <p class="project-period">2025 · 개인 프로젝트</p>
+                            <p class="project-period">2025.09 — 2025.12 · 개인 프로젝트</p>
                             <p class="project-role">기획 · 풀스택 개발</p>
                         </div>
                     </div>
-                    <span class="badge badge-personal">Personal</span>
+                    <div class="badge-group">
+                        <span class="badge badge-award">🥉 장려상</span>
+                        <span class="badge badge-patent">📄 특허출원</span>
+                        <span class="badge badge-personal">Personal</span>
+                    </div>
+                </div>
+
+                <div class="award-banner-mini">
+                    <div class="icon">🥉</div>
+                    <div class="info">
+                        <div class="title">주문식 교육 생성형AI활용개발실무 경진대회 — 장려상</div>
+                        <div class="date">2025.12.12</div>
+                    </div>
+                </div>
+                <div class="award-banner-mini" style="background: linear-gradient(135deg, #ecfdf5, #d1fae5); border-color: #a7f3d0;">
+                    <div class="icon">📄</div>
+                    <div class="info">
+                        <div class="title" style="color: #065f46;">특허 출원 완료</div>
+                        <div class="date" style="color: #047857;">AI 기반 자동 요약 및 Action Item 추출 서비스</div>
+                    </div>
                 </div>
 
                 <p class="project-desc">
@@ -609,11 +788,11 @@
                     </div>
                 </div>
 
-                <div class="award-banner">
+                <div class="award-banner-mini">
                     <div class="icon">🏆</div>
-                    <div>
-                        <h4>동양미래대학교 2024 EXPO — 대상(1등상) 수상</h4>
-                        <p>교내 최대 규모 작품전시회에서 대상을 수상한 프로젝트</p>
+                    <div class="info">
+                        <div class="title">교내 EXPO 졸업작품전시회 — 대상 (대학총장상)</div>
+                        <div class="date">2024.11.14</div>
                     </div>
                 </div>
 
