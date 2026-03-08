@@ -19,9 +19,6 @@
             --white: #ffffff;
             --shadow-sm: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
             --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
-            --green: #10b981;
-            --orange: #f59e0b;
-            --purple: #8b5cf6;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; scroll-padding-top: 70px; }
@@ -109,30 +106,28 @@
         .stat-mini .num { font-size: 1.8rem; font-weight: 800; color: var(--secondary-color); line-height: 1; }
         .stat-mini .label { font-size: 0.85rem; color: var(--text-gray); margin-top: 5px; }
 
-        /* --- Retro --- */
-        .retro-section { background: var(--white); }
-        .retro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-        .retro-card { padding: 30px; border-radius: 16px; background: var(--bg-light); border: 1px solid #e2e8f0; box-shadow: var(--shadow-sm); }
-        .retro-card h4 { font-size: 1.2rem; margin-bottom: 15px; color: var(--primary-color); border-bottom: 2px solid #f1f5f9; padding-bottom: 10px; }
-        .retro-card ul { list-style: disc; padding-left: 20px; margin-top: 10px; color: var(--text-gray); }
-        .retro-card li { margin-bottom: 8px; font-size: 0.95rem; }
-
-        /* --- Footer --- */
-        footer { background: var(--primary-color); color: #94a3b8; text-align: center; padding: 60px 0; font-size: 0.95rem; }
-        .footer-social a { display: inline-block; color: #cbd5e1; font-size: 1.8rem; margin: 0 20px; transition: all 0.3s ease; }
-        .footer-social a:hover { color: var(--white); transform: scale(1.2); }
-
         /* --- Award Banner --- */
         .award-banner { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border: 2px solid #f59e0b; border-radius: 16px; padding: 25px 30px; margin-bottom: 25px; display: flex; align-items: center; gap: 20px; }
         .award-icon { font-size: 2.5rem; }
         .award-text h4 { font-size: 1.1rem; color: #78350f; margin-bottom: 4px; }
         .award-text p { font-size: 0.95rem; color: #92400e; }
 
+        /* --- CI/CD Pipeline --- */
+        .pipeline-box { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 16px; padding: 25px 30px; margin-bottom: 25px; }
+        .pipeline-box h4 { font-size: 1.05rem; color: #166534; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .pipeline-flow { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+        .pipeline-step { background: var(--white); padding: 8px 16px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; color: #166534; border: 1px solid #86efac; }
+        .pipeline-arrow { color: #22c55e; font-weight: 700; font-size: 1.2rem; }
+
+        /* --- Footer --- */
+        footer { background: var(--primary-color); color: #94a3b8; text-align: center; padding: 60px 0; font-size: 0.95rem; }
+        .footer-social a { display: inline-block; color: #cbd5e1; font-size: 1.8rem; margin: 0 20px; transition: all 0.3s ease; }
+        .footer-social a:hover { color: var(--white); transform: scale(1.2); }
+
         /* --- Responsive --- */
         @media (max-width: 768px) {
             .hero-title { font-size: 2.5rem; }
             .section-title { font-size: 1.8rem; }
-            .retro-grid { grid-template-columns: 1fr; }
             .project-card { padding: 25px; }
             .project-name { font-size: 1.4rem; }
             .project-top { flex-direction: column; }
@@ -141,6 +136,8 @@
             .award-banner { flex-direction: column; text-align: center; }
             .nav-menu { gap: 15px; }
             .nav-link { font-size: 0.85rem; }
+            .pipeline-flow { flex-direction: column; align-items: flex-start; }
+            .pipeline-arrow { transform: rotate(90deg); }
         }
     </style>
 </head>
@@ -188,6 +185,7 @@
                         <span class="skill-tag">JWT</span>
                         <span class="skill-tag">Spring Data JPA</span>
                         <span class="skill-tag">WebFlux</span>
+                        <span class="skill-tag">WebSocket</span>
                     </div>
                 </div>
                 <div class="skill-card">
@@ -216,12 +214,22 @@
                     </div>
                 </div>
                 <div class="skill-card">
-                    <div class="skill-category"><i class="fas fa-cloud"></i> Infra & Tools</div>
+                    <div class="skill-category"><i class="fas fa-cloud"></i> DevOps & Infra</div>
                     <div class="skill-tags">
                         <span class="skill-tag">AWS EC2</span>
+                        <span class="skill-tag">AWS S3</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">GitHub Actions</span>
+                        <span class="skill-tag">CI/CD</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-category"><i class="fas fa-tools"></i> Tools</div>
+                    <div class="skill-tags">
                         <span class="skill-tag">Git</span>
                         <span class="skill-tag">GitHub</span>
                         <span class="skill-tag">Swagger</span>
+                        <span class="skill-tag">Docker Compose</span>
                     </div>
                 </div>
             </div>
@@ -233,82 +241,84 @@
         <div class="container">
             <h2 class="section-title">Projects</h2>
 
-            <!-- ===== PROJECT 1: Leaf Tale (수상작) ===== -->
+            <!-- ===== PROJECT 1: Zivorp (DebugVisual) — 최신 ===== -->
             <div class="project-card">
                 <div class="project-top">
                     <div>
                         <div class="project-name">
-                            🖐 손 재활 및 발달 플랫폼 (Leaf Tale)
+                            🔍 Zivorp (Debug Visual)
                         </div>
-                        <p class="project-period">2024.06 — 2024.11 · 팀 프로젝트 (5인)</p>
-                        <p class="project-role">🧑‍💻 담당: Backend 개발</p>
+                        <p class="project-period">2025.03 — 진행중 · 팀 프로젝트 (5인)</p>
+                        <p class="project-role">🧑‍💻 담당: Backend 단독 개발 (BE 1인) · AWS 배포 · CI/CD 자동화</p>
                     </div>
-                    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                        <span class="project-badge badge-award">🏆 2024 EXPO 대상(1등상)</span>
-                        <span class="project-badge badge-team">Team</span>
-                    </div>
-                </div>
-
-                <div class="award-banner">
-                    <div class="award-icon">🏆</div>
-                    <div class="award-text">
-                        <h4>동양미래대학교 2024 EXPO — 대상 수상</h4>
-                        <p>교내 최대 규모 작품전시회에서 1등상(대상)을 수상한 프로젝트입니다.</p>
-                    </div>
+                    <span class="project-badge badge-team">Team · Solo Backend</span>
                 </div>
 
                 <p class="project-desc">
-                    디지털 기기의 과도한 사용으로 인한 손 소근육 발달 지연 문제를 해결하기 위해, 
-                    <strong>컴퓨터 비전 AI 센서(LeapMotion)</strong>를 활용하여 손의 움직임을 실시간 분석하고 
-                    게임 기반으로 손 기능 개선과 발달을 돕는 <strong>재활 플랫폼</strong>입니다.
+                    코드 실행 결과를 <strong>시각적으로 디버깅</strong>할 수 있는 웹 기반 플랫폼입니다.
+                    Python, Java, C 언어 코드를 실행하고, AST(추상 구문 트리) 기반 <strong>코드 시각화</strong>와 
+                    <strong>실시간 협업 코딩(WebSocket)</strong>, 커뮤니티 기능까지 제공합니다.
+                    5명 팀에서 <strong>백엔드 전체를 혼자 설계·개발·배포</strong>했습니다.
                 </p>
 
                 <div class="project-tech">
-                    <span class="tech-tag">Spring Boot 3.3</span>
+                    <span class="tech-tag">Spring Boot 3.4</span>
                     <span class="tech-tag">Java 17</span>
+                    <span class="tech-tag">Spring Security</span>
+                    <span class="tech-tag">JWT</span>
                     <span class="tech-tag">Spring Data JPA</span>
+                    <span class="tech-tag">WebFlux (WebClient)</span>
+                    <span class="tech-tag">WebSocket</span>
                     <span class="tech-tag">MySQL</span>
                     <span class="tech-tag">AWS EC2</span>
-                    <span class="tech-tag">AWS RDS</span>
+                    <span class="tech-tag">AWS S3</span>
+                    <span class="tech-tag">Docker</span>
+                    <span class="tech-tag">GitHub Actions CI/CD</span>
                     <span class="tech-tag">Swagger</span>
-                    <span class="tech-tag">React.js</span>
-                    <span class="tech-tag">Unity</span>
-                    <span class="tech-tag">LeapMotion SDK</span>
                 </div>
 
                 <div class="project-highlights">
-                    <h4>💡 핵심 기능 및 기여</h4>
+                    <h4>💡 핵심 기능 및 기여 (Backend 전체 담당)</h4>
                     <ul>
-                        <li><strong>게임 데이터 수집 API:</strong> Unity 게임에서 전송되는 손 동작 데이터를 수집·저장하는 REST API 설계 및 구현</li>
-                        <li><strong>재활 진행 대시보드 API:</strong> 수집된 데이터를 바탕으로 재활 진행 상황을 시각화하기 위한 통계 API 구현</li>
-                        <li><strong>회원 관리 시스템:</strong> 사용자별 게임 기록 및 재활 이력을 관리하는 인증·인가 시스템 구축</li>
-                        <li><strong>AWS 인프라:</strong> EC2 + RDS 기반 배포 환경 구성 및 운영</li>
+                        <li><strong>코드 실행 & 시각화 API:</strong> WebClient 기반 비동기 통신으로 외부 컴파일러 서버와 연동, Python/Java/C 코드 실행 결과 및 AST 시각화 데이터를 반환</li>
+                        <li><strong>실시간 협업 코딩 (WebSocket):</strong> WebSocket 기반 코드 세션 관리 — 다수 사용자가 동시에 코드를 편집하고 실행하는 실시간 협업 환경 구축</li>
+                        <li><strong>커뮤니티 시스템:</strong> 게시글/댓글 CRUD, 신고 기능, 파일 업로드(AWS S3) 등 커뮤니티 풀스택 API 설계 및 구현</li>
+                        <li><strong>인증/인가:</strong> Spring Security + JWT 기반 사용자 인증 시스템, 역할별 접근 제어</li>
+                        <li><strong>파일 관리:</strong> AWS S3 연동으로 코드 파일 업로드/다운로드/조회 기능 구현</li>
                     </ul>
+                </div>
+
+                <div class="pipeline-box">
+                    <h4><i class="fas fa-rocket"></i> CI/CD 자동 배포 파이프라인 (GitHub Actions)</h4>
+                    <div class="pipeline-flow">
+                        <span class="pipeline-step">🔀 main Push</span>
+                        <span class="pipeline-arrow">→</span>
+                        <span class="pipeline-step">☕ JDK 17 Setup</span>
+                        <span class="pipeline-arrow">→</span>
+                        <span class="pipeline-step">🔨 Gradle Build</span>
+                        <span class="pipeline-arrow">→</span>
+                        <span class="pipeline-step">📦 SCP → EC2</span>
+                        <span class="pipeline-arrow">→</span>
+                        <span class="pipeline-step">🚀 SSH Deploy</span>
+                    </div>
+                    <p style="margin-top: 12px; font-size: 0.85rem; color: #166534;">
+                        main 브랜치 Push 시 GitHub Actions가 Gradle 빌드 → JAR 파일을 EC2로 전송 → deploy.sh 실행으로 <strong>무중단 자동 배포</strong>
+                    </p>
                 </div>
 
                 <div class="project-highlights">
-                    <h4>📋 프로젝트 주요 포인트</h4>
+                    <h4>🏗️ 인프라 & DevOps 기여</h4>
                     <ul>
-                        <li>기존 재활 기기의 <strong>고가·저접근성</strong> 문제를 게임 기반 저비용 솔루션으로 해결</li>
-                        <li>5개의 재활 게임 (달려라 고양이, 날아라 빗자루, 울려라 오케스트라, 뽑아라 마법채소, 그려라 마법진)</li>
-                        <li>데이터 분석 기반 <strong>재활 진행 시각화 대시보드</strong> 제공</li>
-                        <li>의료 기관 협력 및 B2C 시장 진출 가능성까지 제안서에 포함</li>
+                        <li><strong>Docker 컨테이너화:</strong> Dockerfile + Docker Compose로 Spring Boot + MySQL 로컬/운영 환경 통일</li>
+                        <li><strong>GitHub Actions CI/CD:</strong> main push 시 자동 빌드 → EC2 배포 파이프라인 구축 (deploy.yml)</li>
+                        <li><strong>AWS EC2 서버 관리:</strong> 서버 환경 구성, 배포 스크립트 작성, 운영 모니터링</li>
+                        <li><strong>환경변수 관리:</strong> Secrets 기반 민감 정보 관리 (DB 접속 정보, SSH 키 등)</li>
                     </ul>
                 </div>
 
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/eUpXLGqR8mU" title="Leaf Tale 게임 화면 영상" allowfullscreen></iframe>
-                </div>
-
-                <div class="project-links" style="margin-top: 20px;">
-                    <a href="https://github.com/2024-dmu-expo-el/leaf_tale" target="_blank" class="btn-link btn-primary">
-                        <i class="fab fa-github"></i> 프로젝트 소개
-                    </a>
-                    <a href="https://github.com/2024-dmu-expo-el/2024-dmu-expo-el-back" target="_blank" class="btn-link btn-dark">
+                <div class="project-links">
+                    <a href="https://github.com/DMU-DebugVisual/DebugVisual_BackEnd" target="_blank" class="btn-link btn-dark">
                         <i class="fab fa-github"></i> Backend Repo
-                    </a>
-                    <a href="http://43.203.0.69:8081/" target="_blank" class="btn-link btn-outline">
-                        <i class="fas fa-external-link-alt"></i> 서비스 바로가기
                     </a>
                 </div>
             </div>
@@ -385,7 +395,86 @@
                 </div>
             </div>
 
-            <!-- ===== PROJECT 3: Dr.Nyam ===== -->
+            <!-- ===== PROJECT 3: Leaf Tale (수상작) ===== -->
+            <div class="project-card">
+                <div class="project-top">
+                    <div>
+                        <div class="project-name">
+                            🖐 손 재활 및 발달 플랫폼 (Leaf Tale)
+                        </div>
+                        <p class="project-period">2024.06 — 2024.11 · 팀 프로젝트 (5인)</p>
+                        <p class="project-role">🧑‍💻 담당: Backend 개발</p>
+                    </div>
+                    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                        <span class="project-badge badge-award">🏆 2024 EXPO 대상(1등상)</span>
+                        <span class="project-badge badge-team">Team</span>
+                    </div>
+                </div>
+
+                <div class="award-banner">
+                    <div class="award-icon">🏆</div>
+                    <div class="award-text">
+                        <h4>동양미래대학교 2024 EXPO — 대상 수상</h4>
+                        <p>교내 최대 규모 작품전시회에서 1등상(대상)을 수상한 프로젝트입니다.</p>
+                    </div>
+                </div>
+
+                <p class="project-desc">
+                    디지털 기기의 과도한 사용으로 인한 손 소근육 발달 지연 문제를 해결하기 위해, 
+                    <strong>컴퓨터 비전 AI 센서(LeapMotion)</strong>를 활용하여 손의 움직임을 실시간 분석하고 
+                    게임 기반으로 손 기능 개선과 발달을 돕는 <strong>재활 플랫폼</strong>입니다.
+                </p>
+
+                <div class="project-tech">
+                    <span class="tech-tag">Spring Boot 3.3</span>
+                    <span class="tech-tag">Java 17</span>
+                    <span class="tech-tag">Spring Data JPA</span>
+                    <span class="tech-tag">MySQL</span>
+                    <span class="tech-tag">AWS EC2</span>
+                    <span class="tech-tag">AWS RDS</span>
+                    <span class="tech-tag">Swagger</span>
+                    <span class="tech-tag">React.js</span>
+                    <span class="tech-tag">Unity</span>
+                    <span class="tech-tag">LeapMotion SDK</span>
+                </div>
+
+                <div class="project-highlights">
+                    <h4>💡 핵심 기능 및 기여</h4>
+                    <ul>
+                        <li><strong>게임 데이터 수집 API:</strong> Unity 게임에서 전송되는 손 동작 데이터를 수집·저장하는 REST API 설계 및 구현</li>
+                        <li><strong>재활 진행 대시보드 API:</strong> 수집된 데이터를 바탕으로 재활 진행 상황을 시각화하기 위한 통계 API 구현</li>
+                        <li><strong>회원 관리 시스템:</strong> 사용자별 게임 기록 및 재활 이력을 관리하는 인증·인가 시스템 구축</li>
+                        <li><strong>AWS 인프라:</strong> EC2 + RDS 기반 배포 환경 구성 및 운영</li>
+                    </ul>
+                </div>
+
+                <div class="project-highlights">
+                    <h4>📋 프로젝트 주요 포인트</h4>
+                    <ul>
+                        <li>기존 재활 기기의 <strong>고가·저접근성</strong> 문제를 게임 기반 저비용 솔루션으로 해결</li>
+                        <li>5개의 재활 게임 (달려라 고양이, 날아라 빗자루, 울려라 오케스트라, 뽑아라 마법채소, 그려라 마법진)</li>
+                        <li>데이터 분석 기반 <strong>재활 진행 시각화 대시보드</strong> 제공</li>
+                    </ul>
+                </div>
+
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/eUpXLGqR8mU" title="Leaf Tale 게임 화면 영상" allowfullscreen></iframe>
+                </div>
+
+                <div class="project-links" style="margin-top: 20px;">
+                    <a href="https://github.com/2024-dmu-expo-el/leaf_tale" target="_blank" class="btn-link btn-primary">
+                        <i class="fab fa-github"></i> 프로젝트 소개
+                    </a>
+                    <a href="https://github.com/2024-dmu-expo-el/2024-dmu-expo-el-back" target="_blank" class="btn-link btn-dark">
+                        <i class="fab fa-github"></i> Backend Repo
+                    </a>
+                    <a href="http://43.203.0.69:8081/" target="_blank" class="btn-link btn-outline">
+                        <i class="fas fa-external-link-alt"></i> 서비스 바로가기
+                    </a>
+                </div>
+            </div>
+
+            <!-- ===== PROJECT 4: Dr.Nyam ===== -->
             <div class="project-card">
                 <div class="project-top">
                     <div>
@@ -415,7 +504,6 @@
                     <span class="tech-tag">Spring Data JPA</span>
                     <span class="tech-tag">MySQL</span>
                     <span class="tech-tag">OAuth2 (카카오)</span>
-                    <span class="tech-tag">Swagger</span>
                     <span class="tech-tag">React</span>
                     <span class="tech-tag">Naver Maps API</span>
                 </div>
