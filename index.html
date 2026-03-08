@@ -41,7 +41,6 @@
         .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
         section { padding: 100px 0; }
 
-        /* --- Glass Navbar --- */
         .navbar {
             position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
             background: rgba(255,255,255,0.72);
@@ -59,7 +58,6 @@
         }
         .nav-link:hover { color: var(--plum); background: var(--plum-subtle); }
 
-        /* --- Hero --- */
         .hero {
             padding: 180px 0 120px;
             background: var(--bg);
@@ -118,7 +116,6 @@
         }
         .hero-btn-ghost:hover { border-color: var(--plum-light); color: var(--plum); background: var(--plum-subtle); }
 
-        /* --- Section Header --- */
         .section-header { text-align: center; margin-bottom: 64px; }
         .section-label {
             display: inline-block; font-size: 0.8rem; font-weight: 700; 
@@ -127,7 +124,6 @@
         }
         .section-title { font-size: 2.4rem; font-weight: 800; letter-spacing: -1px; color: var(--text); }
 
-        /* --- Skills --- */
         .skills-section { background: var(--bg-alt); }
         .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
         .skill-card {
@@ -149,7 +145,6 @@
             background: var(--bg-alt); border: 1px solid var(--border-light);
         }
 
-        /* --- Awards Timeline --- */
         .awards-section { background: var(--bg); }
         .awards-timeline { max-width: 800px; margin: 0 auto; position: relative; }
         .awards-timeline::before {
@@ -209,7 +204,6 @@
             background: rgba(5,150,105,0.08); color: #059669; border-color: #a7f3d0;
         }
 
-        /* --- Projects --- */
         .project-card {
             background: var(--bg); border-radius: 24px; padding: 48px;
             margin-bottom: 40px; border: 1px solid var(--border-light);
@@ -274,7 +268,6 @@
         }
         .feature-block li strong { color: var(--text); font-weight: 600; }
 
-        /* --- Award Banners in project --- */
         .award-banner-mini {
             background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
             border: 1px solid #fde68a; border-radius: var(--radius-sm);
@@ -298,7 +291,6 @@
         .award-banner-green .title { font-weight: 700; color: #065f46; }
         .award-banner-green .date { font-size: 0.78rem; color: #047857; }
 
-        /* --- Pipeline --- */
         .pipeline-box {
             background: var(--plum-subtle); border: 1px solid rgba(124,58,237,0.1);
             border-radius: var(--radius); padding: 24px 28px; margin-bottom: 28px;
@@ -316,7 +308,6 @@
         .pipeline-arrow { color: var(--plum-light); font-size: 0.85rem; }
         .pipeline-note { margin-top: 12px; font-size: 0.82rem; color: var(--plum-dark); opacity: 0.8; }
 
-        /* --- Stats --- */
         .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 28px 0; }
         .stat-mini {
             background: var(--bg-alt); padding: 24px 16px; border-radius: var(--radius);
@@ -329,7 +320,6 @@
         }
         .stat-mini .label { font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px; line-height: 1.4; }
 
-        /* --- Video --- */
         .video-wrapper {
             position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
             border-radius: var(--radius); margin: 24px 0 0;
@@ -337,7 +327,6 @@
         }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
-        /* --- Buttons --- */
         .project-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
         .btn {
             display: inline-flex; align-items: center; gap: 8px;
@@ -352,7 +341,6 @@
         .btn-ghost { background: transparent; color: var(--text); border: 1.5px solid var(--border); }
         .btn-ghost:hover { border-color: var(--plum-light); color: var(--plum); }
 
-        /* --- Footer --- */
         footer {
             background: var(--text); color: #a1a1aa; text-align: center;
             padding: 60px 0; font-size: 0.9rem;
@@ -366,7 +354,6 @@
         }
         .footer-links a:hover { background: var(--plum); color: #fff; transform: translateY(-3px); }
 
-        /* --- Responsive --- */
         @media (max-width: 768px) {
             .hero { padding: 140px 0 80px; }
             .hero-title { font-size: 2.8rem; letter-spacing: -1px; }
@@ -516,7 +503,6 @@
             </div>
             <div class="awards-timeline">
 
-                <!-- 2026.02.13 특허출원 -->
                 <div class="award-item patent">
                     <div class="award-dot"></div>
                     <div class="award-year">2026.02.13</div>
@@ -527,7 +513,6 @@
                     </div>
                 </div>
 
-                <!-- 2025.12.12 최우수상 -->
                 <div class="award-item major">
                     <div class="award-dot"></div>
                     <div class="award-year">2025.12.12</div>
@@ -538,7 +523,6 @@
                     </div>
                 </div>
 
-                <!-- 2025.12.12 장려상 -->
                 <div class="award-item">
                     <div class="award-dot"></div>
                     <div class="award-year">2025.12.12</div>
@@ -549,7 +533,6 @@
                     </div>
                 </div>
 
-                <!-- 2025.11.28 동상 -->
                 <div class="award-item">
                     <div class="award-dot"></div>
                     <div class="award-year">2025.11.28</div>
@@ -559,7 +542,6 @@
                     </div>
                 </div>
 
-                <!-- 2025.11.21 ABEEK상 -->
                 <div class="award-item major">
                     <div class="award-dot"></div>
                     <div class="award-year">2025.11.21</div>
@@ -570,7 +552,6 @@
                     </div>
                 </div>
 
-                <!-- 2024.12.06 장려상 -->
                 <div class="award-item">
                     <div class="award-dot"></div>
                     <div class="award-year">2024.12.06</div>
@@ -580,7 +561,6 @@
                     </div>
                 </div>
 
-                <!-- 2024.11.16 우수상 -->
                 <div class="award-item major">
                     <div class="award-dot"></div>
                     <div class="award-year">2024.11.16</div>
@@ -590,7 +570,6 @@
                     </div>
                 </div>
 
-                <!-- 2024.11.14 대상 -->
                 <div class="award-item major">
                     <div class="award-dot"></div>
                     <div class="award-year">2024.11.14</div>
@@ -601,7 +580,6 @@
                     </div>
                 </div>
 
-                <!-- 2023.12.27 최우수상 -->
                 <div class="award-item major">
                     <div class="award-dot"></div>
                     <div class="award-year">2023.12.27</div>
@@ -714,8 +692,14 @@
                 </div>
 
                 <div class="project-links">
+                    <a href="https://github.com/DMU-DebugVisual" target="_blank" class="btn btn-plum">
+                        <i class="fab fa-github"></i> Organization
+                    </a>
                     <a href="https://github.com/DMU-DebugVisual/DebugVisual_BackEnd" target="_blank" class="btn btn-dark">
                         <i class="fab fa-github"></i> Backend Repo
+                    </a>
+                    <a href="https://github.com/DMU-DebugVisual/DebugVisual_FrontEnd" target="_blank" class="btn btn-ghost">
+                        <i class="fab fa-github"></i> Frontend Repo
                     </a>
                 </div>
             </div>
@@ -799,8 +783,8 @@
                 </div>
 
                 <div class="project-links">
-                    <a href="https://action-log-front-end.vercel.app" target="_blank" class="btn btn-plum">
-                        <i class="fas fa-rocket"></i> 서비스 바로가기
+                    <a href="https://github.com/1anminJ/Action-Log" target="_blank" class="btn btn-plum">
+                        <i class="fas fa-info-circle"></i> 소개 페이지
                     </a>
                     <a href="https://github.com/1anminJ/Action-Log_BackEnd" target="_blank" class="btn btn-dark">
                         <i class="fab fa-github"></i> Backend Repo
@@ -878,13 +862,7 @@
 
                 <div class="project-links">
                     <a href="https://github.com/2024-dmu-expo-el/leaf_tale" target="_blank" class="btn btn-plum">
-                        <i class="fab fa-github"></i> 프로젝트 소개
-                    </a>
-                    <a href="https://github.com/2024-dmu-expo-el/2024-dmu-expo-el-back" target="_blank" class="btn btn-dark">
-                        <i class="fab fa-github"></i> Backend Repo
-                    </a>
-                    <a href="http://43.203.0.69:8081/" target="_blank" class="btn btn-ghost">
-                        <i class="fas fa-external-link-alt"></i> 서비스 바로가기
+                        <i class="fas fa-info-circle"></i> 소개 페이지
                     </a>
                 </div>
             </div>
@@ -906,7 +884,7 @@
                 </div>
 
                 <p class="project-desc">
-                    "사람의 취향�� 겹쳐지는 지도" — 나만의 맛집을 <strong>지도 위에 기록</strong>하고, 
+                    "사람의 취향이 겹쳐지는 지도" — 나만의 맛집을 <strong>지도 위에 기록</strong>하고, 
                     <strong>링크 하나로 공유</strong>하며, 친구의 취향과 겹쳐보는 <strong>소셜 맛집 지도 서비스</strong>. 
                     PRD 작성부터 설계, 개발까지 1인 진행 중.
                 </p>
