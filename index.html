@@ -432,6 +432,7 @@
             <div class="nav-menu">
                 <a href="#home" class="nav-link">Home</a>
                 <a href="#skills" class="nav-link">Skills</a>
+                <a href="#github-stats" class="nav-link">GitHub</a>
                 <a href="#education" class="nav-link">Education</a>
                 <a href="#awards" class="nav-link">Awards</a>
                 <a href="#projects" class="nav-link">Projects</a>
@@ -543,6 +544,36 @@
         </div>
     </section>
 
+    <!-- ==================== GITHUB STATS ==================== -->
+    <section id="github-stats" style="background: var(--bg-alt); padding: 80px 0;">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">GitHub</div>
+                <h2 class="section-title">GitHub 활동</h2>
+            </div>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:20px;">
+                <!-- 기여도 그래프 -->
+                <img
+                    src="https://github-readme-activity-graph.vercel.app/graph?username=1anminJ&theme=react-dark&bg_color=f5f3ff&color=7c3aed&line=7c3aed&point=5b21b6&area=true&hide_border=true"
+                    alt="GitHub Activity Graph"
+                    style="width:100%; max-width:900px; border-radius:var(--radius); box-shadow:var(--shadow-md);"
+                />
+                <!-- 통계 카드 두 개 나란히 -->
+                <div style="display:flex; gap:20px; flex-wrap:wrap; justify-content:center;">
+                    <img
+                        src="https://github-readme-stats.vercel.app/api?username=1anminJ&show_icons=true&theme=default&title_color=7c3aed&icon_color=a78bfa&text_color=18181b&bg_color=ffffff&border_color=e4e4e7&border_radius=16&hide_border=false"
+                        alt="GitHub Stats"
+                        style="height:180px; border-radius:var(--radius); box-shadow:var(--shadow-md);"
+                    />
+                    <img
+                        src="https://github-readme-stats.vercel.app/api/top-langs/?username=1anminJ&layout=compact&theme=default&title_color=7c3aed&text_color=18181b&bg_color=ffffff&border_color=e4e4e7&border_radius=16&hide_border=false"
+                        alt="Top Languages"
+                        style="height:180px; border-radius:var(--radius); box-shadow:var(--shadow-md);"
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- ==================== EDUCATION ==================== -->
     <section id="education" class="education-section">
         <div class="container">
@@ -582,12 +613,15 @@
             </div>
             <div class="awards-timeline">
 
-                <div class="award-item patent">
+                    <div class="award-item patent">
                     <div class="award-dot"></div>
                     <div class="award-year">2026.02.13</div>
                     <div class="award-card">
                         <div class="award-heading">📄 특허 출원</div>
                         <div class="award-org">AI 기반 자동 요약 및 Action Item 추출 서비스</div>
+                        <div style="font-size:0.8rem; color:var(--plum); font-weight:600; margin-top:6px;">
+                            출원번호 10-2026-0029501
+                        </div>
                         <span class="award-project-tag">🎙️ Action Log</span>
                     </div>
                 </div>
@@ -803,7 +837,7 @@
                 <div class="award-banner-mini">
                     <div class="icon">🥉</div>
                     <div class="info">
-                        <div class="title">���문식 교육 생성형AI활용개발실무 경진대회 — 장려상</div>
+                        <div class="title">주문식 교육 생성형AI활용개발실무 경진대회 — 장려상</div>
                         <div class="date">2025.12.12</div>
                     </div>
                 </div>
@@ -812,6 +846,7 @@
                     <div class="info">
                         <div class="title">특허 출원 완료</div>
                         <div class="date">2026.02.13 · AI 기반 자동 요약 및 Action Item 추출 서비스</div>
+                        <div class="date" style="margin-top:2px;">출원번호 10-2026-0029501</div>
                     </div>
                 </div>
 
